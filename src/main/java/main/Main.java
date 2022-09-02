@@ -9,5 +9,6 @@ public class Main {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
 
+        System.out.println("hello");
     }
 }

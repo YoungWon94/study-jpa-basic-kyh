@@ -3,7 +3,10 @@
              xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
     <persistence-unit name="hello">
-        <!--<class>hellojpa.entity.Member</class>-->
+        <!-- 메이븐으로 하면 알아서 엔티티 조회하는데 그래들로하면 엔티티 다 지정해줘야함. (단순히 그래들의 문제인지는 모르겠음.)  -->
+<!--        <class>entity.Member</class>-->
+        <!-- 엔티티 하나하나 지정하기 힘들어서 컴파일된 클래스 경로 지정해주면 알아서 엔티티 식별되는듯! -->
+        <jar-file>file:build/classes</jar-file>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>

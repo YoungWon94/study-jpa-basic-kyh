@@ -19,8 +19,7 @@ public class Item {
     @Column(name = "stock_quantity")
     private Integer stockQuantity;
 
-    @ManyToMany
-    @JoinColumn(name = "category_id")
+    @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
 
 

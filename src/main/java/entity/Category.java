@@ -9,15 +9,21 @@ import java.util.List;
 public class Category {
 
     @Id @GeneratedValue
+    @Column(name = "category_id")
     private Long categoryId;
 
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "parent_category_id")
-    private Category parent;
-
     @ManyToMany(mappedBy = "categories")
     private List<Item> items = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "parent_category_id")
+    private Category parentCategory;
+
+    @OneToMany(mappedBy = "parentCategory")
+    private List<Category> childCategories = new ArrayList<>();
+
+
 
 }

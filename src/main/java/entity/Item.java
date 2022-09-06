@@ -11,14 +11,18 @@ import java.util.List;
 public class Item {
 
     @Id @GeneratedValue
+    @Column(name = "item_id")
     private Long itemId;
+
+    private String name;
+    private Integer price;
+    @Column(name = "stock_quantity")
+    private Integer stockQuantity;
 
     @ManyToMany
     @JoinColumn(name = "category_id")
     private List<Category> categories = new ArrayList<>();
 
-    private String name;
-    private Integer price;
-    private Integer stockQuantity;
+
 
 }
